@@ -3,7 +3,9 @@ A technical interview exam for Sprout company.
 how to clone:
 1. git clone "https://github.com/edilberto-pajunar/sprout_technical_exam"
 2. flutter pub get
-3. flutter run
+3. dart run build_runner watch --delete-conflicting-outputs
+4. flutter run
+
 
 [Home Screen]
 ![image](https://github.com/edilberto-pajunar/sprout_technical_exam/assets/110841351/bc8f97cb-cc40-4069-b1e7-c346e56f21db)
@@ -17,6 +19,9 @@ Language/Tools used here:
 
 State Management:
 Bloc
+
+Route:
+auto_route
 
 Test:
 flutter_test, bloc_test, mockito
