@@ -14,13 +14,15 @@ final class ProductLoading extends ProductState {
 
 final class ProductListLoaded extends ProductState {
   final List<Product> products;
+  final int page;
 
   const ProductListLoaded({
     required this.products,
+    this.page = 1,
   });
 
   @override
-  List<Object> get props => [products];
+  List<Object> get props => [products, page];
 }
 
 final class ProductLoaded extends ProductState {

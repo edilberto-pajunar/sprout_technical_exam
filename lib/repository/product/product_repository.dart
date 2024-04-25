@@ -26,7 +26,7 @@ class ProductRepository extends BaseProductRepository {
   Future<List<Product>> getProducts(String skip) async {
     final uri = Uri.https(DummyApi.baseUrl, "/products", {
       "limit": "10",
-      "skip": "skip",
+      "skip": skip,
       "select": ["title", "price", "thumbnail", "stock", "discountPercentage"],
     });
 

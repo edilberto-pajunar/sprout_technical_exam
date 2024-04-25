@@ -31,8 +31,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   void _onLoadProductList(LoadProductList event, emit) async {
     emit(ProductLoading());
     try {
-      final List<Product> products = await _productRepository.getProducts(event.skip);
-      emit(ProductListLoaded(products: products));
+      final List<Product> products = await _productRepository.getProducts("${event.page}0");
+      emit(ProductListLoaded(products: products, page: event.page));
     } catch (e) {
       log("Something went wrong: $e");
     }

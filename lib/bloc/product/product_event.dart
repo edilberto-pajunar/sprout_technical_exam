@@ -19,12 +19,12 @@ class LoadProduct extends ProductEvent {
 }
 
 class LoadProductList extends ProductEvent {
-  final String skip;
+  final int page;
 
   const LoadProductList({
-    this.skip = "1",
+    this.page = 1,
   });
 
   @override
-  List<Object> get props => [skip];
+  List<Object> get props => [page];
 }

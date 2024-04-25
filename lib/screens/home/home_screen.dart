@@ -54,36 +54,46 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
           if (state is ProductListLoaded) {
-            return SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    RefreshIndicator(
-                      onRefresh: () async {
-                        context.read<ProductBloc>().add(const LoadProductList());
-                      },
-                      child: GridView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        controller: controller,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 0.6,
-                        ),
-                        itemCount: state.products.length,
-                        itemBuilder: (context, index) {
-                          final product = state.products[index];
-                          return ProductTile(product: product);
+            int numPages = 11;
+
+            var pages = List.generate(
+              numPages,
+              (index) => SafeArea(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      RefreshIndicator(
+                        onRefresh: () async {
+                          context.read<ProductBloc>().add(const LoadProductList());
                         },
+                        child: GridView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          controller: controller,
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 0.6,
+                          ),
+                          itemCount: state.products.length,
+                          itemBuilder: (context, index) {
+                            final product = state.products[index];
+                            return ProductTile(product: product);
+                          },
+                        ),
                       ),
-                    ),
-                    const NumberPaginator(
-                      numberPages: 10,
-                    )
-                  ],
+                      NumberPaginator(
+                        numberPages: 10,
+                        onPageChange: (int val) {
+                          context.read<ProductBloc>().add(LoadProductList(page: val));
+                        },
+                        initialPage: state.page,
+                      )
+                    ],
+                  ),
                 ),
               ),
             );
+            return pages[state.page];
           } else {
             return const Center(
               child: Text("Something went wrong."),

@@ -20,7 +20,7 @@ class ProductScreen extends StatelessWidget {
 
     return PopScope(
       onPopInvoked: (val) {
-        context.read<ProductBloc>().add(LoadProductList());
+        context.read<ProductBloc>().add(const LoadProductList());
       },
       child: Scaffold(
         extendBodyBehindAppBar: true,
@@ -31,7 +31,7 @@ class ProductScreen extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }
-        
+
             if (state is ProductLoaded) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,7 @@ class ProductScreen extends StatelessWidget {
                             backgroundColor: Colors.white,
                             child: IconButton(
                               onPressed: () {
-                                context.read<ProductBloc>().add(LoadProductList());
+                                context.read<ProductBloc>().add(const LoadProductList());
                                 context.maybePop();
                               },
                               icon: const Icon(Icons.arrow_back),
@@ -113,10 +113,13 @@ class ProductScreen extends StatelessWidget {
                                   const Text(
                                     "Item",
                                   ),
-                                  Text(
-                                    state.product.title ?? "",
-                                    style: theme.textTheme.headlineSmall!.copyWith(
-                                      fontWeight: FontWeight.bold,
+                                  SizedBox(
+                                    width: size.width * 0.5,
+                                    child: Text(
+                                      state.product.title ?? "",
+                                      style: theme.textTheme.headlineSmall!.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                   const Text("Rating"),

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
               create: (context) =>
-                  ProductBloc(productRepository: context.read<ProductRepository>())..add(LoadProductList())),
+                  ProductBloc(productRepository: context.read<ProductRepository>())..add(const LoadProductList())),
         ],
         child: MaterialApp.router(
           routerConfig: appRouter.config(),
