@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       RefreshIndicator(
                         onRefresh: () async {
-                          context.read<ProductBloc>().add(const LoadProductList());
+                          context.read<ProductBloc>().add(LoadProductList(page: state.page));
                         },
                         child: GridView.builder(
                           physics: const NeverScrollableScrollPhysics(),
