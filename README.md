@@ -1,16 +1,26 @@
-# sprout_technical_exam
+A technical interview exam for Sprout company.
 
-A new Flutter project.
+how to clone:
+1. git clone "https://github.com/edilberto-pajunar/sprout_technical_exam"
+2. flutter pub get
+3. flutter run
 
-## Getting Started
+[Home Screen]
+![image](https://github.com/edilberto-pajunar/sprout_technical_exam/assets/110841351/bc8f97cb-cc40-4069-b1e7-c346e56f21db)
 
-This project is a starting point for a Flutter application.
+[Product Screen]
+![image](https://github.com/edilberto-pajunar/sprout_technical_exam/assets/110841351/d9ee5b97-f218-41d2-b7e7-8f14da5d32e8)
 
-A few resources to get you started if this is your first Flutter project:
+Language/Tools used here:
+1. VS Code
+2. Flutter
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+State Management:
+Bloc
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Test:
+flutter_test, bloc_test
+
+Architecture:
+Bloc Architecture
+
