@@ -19,7 +19,7 @@ State Management:
 Bloc
 
 Test:
-flutter_test, bloc_test
+flutter_test, bloc_test, mockito
 
 Architecture:
 Bloc Architecture
