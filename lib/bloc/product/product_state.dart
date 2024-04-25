@@ -18,7 +18,7 @@ final class ProductListLoaded extends ProductState {
 
   const ProductListLoaded({
     required this.products,
-    this.page = 1,
+    this.page = 0,
   });
 
   @override

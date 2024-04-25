@@ -22,7 +22,7 @@ class LoadProductList extends ProductEvent {
   final int page;
 
   const LoadProductList({
-    this.page = 1,
+    this.page = 0,
   });
 
   @override

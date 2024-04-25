@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
           if (state is ProductListLoaded) {
-            int numPages = 11;
+            int numPages = 10;
 
             var pages = List.generate(
               numPages,
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       NumberPaginator(
-                        numberPages: 10,
+                        numberPages: numPages,
                         onPageChange: (int val) {
                           context.read<ProductBloc>().add(LoadProductList(page: val));
                         },
